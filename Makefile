@@ -3,7 +3,7 @@ CXXFLAGS = -g -std=c++11 -Wall -Werror=return-type  -Werror=uninitialized # --co
 # Do not allow compiling if a non-void function is missing a return statement
 # Do not allow compiling if a variable is used without being initialized
 
-OBJECTS = batchsimulation.o
+OBJECTS = lcsfinder.o similaritymeasurement.o
 
 main: main.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
