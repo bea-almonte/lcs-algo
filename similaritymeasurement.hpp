@@ -11,13 +11,15 @@ class SimilarityMeasurement {
 private:
     int entries;
     int positions[MAX_STRINGS];
+    std::string fileName;
     std::vector<std::vector<char>> simArray; // cost array
 public:
-    void ComputeLengths(std::string fileName); // set string from file input
-    void PopulateArray(std::string fileName);
-    char CalcSimilarity(std::string stringX, std::string stringY);
+    void SetFileName(std::string fileName);
+    void ComputeLengths(); // set string from file input
+    void PopulateArray();
+    char CalcSimilarity(std::string& stringX, std::string& stringY);
     void OutputResults();
-
+    int GetCost(std::string& stringX, std::string& stringY);
     int GetLcsCost();
     std::string GetLscString();
 };

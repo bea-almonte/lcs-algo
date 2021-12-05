@@ -14,7 +14,9 @@ int main() {
     test[1].SetCostArray();
     test[1].OutputResults();
 
-    multi.ComputeLengths("multitext.txt");
-    multi.PopulateArray("multitext.txt");
+    multi.SetFileName("multiStrings.txt");
+    multi.ComputeLengths();
+    multi.PopulateArray();
+    multi.OutputResults();
     return 0;
 }
