@@ -24,9 +24,6 @@ public:
     void SetCostArray();    // fills the cArray
     void RecountLCS(int i, int j); // recount subsequence / print LCS
     void OutputResults();
-
-    int GetLcsCost();
-    std::string GetLscString();
 };
 
 
