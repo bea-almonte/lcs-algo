@@ -12,7 +12,7 @@ int main() {
     partOne.SetCostArray();
     partOne.OutputResults();
 
-    std::cout << "=========================\n";
+    std::cout << "=======================================\n";
     std::cout << "PART TWO\n";
     partTwo.SetFileName("multiStrings.txt");
     partTwo.ComputeLengths();
