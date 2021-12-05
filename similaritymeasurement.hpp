@@ -18,10 +18,8 @@ public:
     void ComputeLengths(); // set string from file input
     void PopulateArray();
     char CalcSimilarity(std::string& stringX, std::string& stringY);
-    void OutputResults();
     int GetCost(std::string& stringX, std::string& stringY);
-    int GetLcsCost();
-    std::string GetLscString();
+    void OutputResults();
 };
 
 
