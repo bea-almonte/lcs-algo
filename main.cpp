@@ -5,7 +5,7 @@
 #include "lcsfinder.hpp"
 
 int main() {
-    lcsFinder test[2];
+    lcsFinder test[3];
 
     test[0].SetStrings("first-test.txt");
     test[0].SetCostArray();
