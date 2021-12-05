@@ -4,19 +4,19 @@
 #include "similaritymeasurement.hpp"
 
 int main() {
-    lcsFinder test[3];
-    SimilarityMeasurement multi;
-    test[0].SetStrings("first-test.txt");
-    test[0].SetCostArray();
-    test[0].OutputResults();
+    lcsFinder partOne;
+    SimilarityMeasurement partTwo;
 
-    test[1].SetStrings("second-test.txt");
-    test[1].SetCostArray();
-    test[1].OutputResults();
+    std::cout << "PART ONE\n";
+    partOne.SetStrings("twoStrings.txt");
+    partOne.SetCostArray();
+    partOne.OutputResults();
 
-    multi.SetFileName("multiStrings.txt");
-    multi.ComputeLengths();
-    multi.PopulateArray();
-    multi.OutputResults();
+    std::cout << "=========================\n";
+    std::cout << "PART TWO\n";
+    partTwo.SetFileName("multiStrings.txt");
+    partTwo.ComputeLengths();
+    partTwo.PopulateArray();
+    partTwo.OutputResults();
     return 0;
 }

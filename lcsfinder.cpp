@@ -6,7 +6,7 @@ lcsFinder::lcsFinder() {
     cols = 0;
 }
 
- // set string from file input
+ // set stringX and string Y from file input
 void lcsFinder::SetStrings(std::string fileName){
     std::ifstream inFile;
 
@@ -26,6 +26,7 @@ void lcsFinder::SetStrings(std::string fileName){
     inFile.close();
 }
 
+// fills the cArray with matches
 void lcsFinder::SetCostArray(){
     // initialize c arrays
 
@@ -35,26 +36,29 @@ void lcsFinder::SetCostArray(){
         }
     }
 
-    // algo
+    // populating the array
     for (int i = 1; i <= rows; i++) {
         for (int j = 1; j <= cols; j++) {
             if (stringX.at(i-1) == stringY.at(j-1)) {
-                // increment diagonal
+                // increment from diagonal
                 cArray[i][j] = cArray[i-1][j-1] + 1;
             } else if (cArray[i-1][j] >= cArray[i][j-1]) {
+                // increment from up
                 cArray[i][j] = cArray[i-1][j];
             } else {
+                // increment from left
                 cArray[i][j] = cArray[i][j-1];
             }
         }
     }
 }
 
-// recount subsequence / print LCS
+// recount subsequence / appends to lcs string
 void lcsFinder::RecountLCS(int i, int j) {
     if (i == 0 || j == 0) {
         return;
     } else if (stringX.at(i-1) == stringY.at(j-1)) {
+        // go to diagonal if match
         RecountLCS(i-1,j-1);
         lcs += stringX.at(i-1);
     } else if(cArray[i-1][j] >= cArray[i][j-1]) {
@@ -65,25 +69,9 @@ void lcsFinder::RecountLCS(int i, int j) {
 
 }
 
+// outputs the subsequence and the path of the subsequence
 void lcsFinder::OutputResults() {
     RecountLCS(rows,cols);
-    std::cout << "rows: " << rows << std::endl;
-    std::cout << "cols: " << cols << std::endl;
-    std::cout << "lcs: " << cArray[rows][cols] << std::endl;
-    std::cout << lcs << std::endl;
-/*     for (int i = 0; i <= rows; i++) {
-        for (int j = 0; j <= cols; j++) {
-        std::cout << cArray[i][j] << " ";
-        }
-        std::cout << std::endl;
-    } */
-}
-
-
-int lcsFinder::GetLcsCost() {
-    return 0;
-}
-
-std::string lcsFinder::GetLscString() {
-    return "bitch";
+    std::cout << "LCS Length: " << cArray[rows][cols] << std::endl;
+    std::cout << "LCS: " << lcs << std::endl;
 }

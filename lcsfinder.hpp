@@ -1,3 +1,7 @@
+// bea almonte
+// lcsfinder.hpp
+// this class takes two inputs, finds the lcs, outputs it's subsequence,
+// and the subsequence length
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -17,7 +21,7 @@ private:
 public:
     lcsFinder();
     void SetStrings(std::string fileName); // set string from file input
-    void SetCostArray();
+    void SetCostArray();    // fills the cArray
     void RecountLCS(int i, int j); // recount subsequence / print LCS
     void OutputResults();
 
